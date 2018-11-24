@@ -45,19 +45,94 @@ end
 return found_pets
 end
 
-# def test_find_pet_by_name__returns_pet
-#   pet = find_pet_by_name(@pet_shop, "Arthur")
-#   assert_equal("Arthur", pet[:name])
-# end
 
 
 def find_pet_by_name(pet_shop,pet_name)
   pet_arr = pet_shop[:pets]
   for pet in pet_arr
-    if pet[:name] == name
+    if pet[:name] == pet_name
       return pet
     else
       return nil
     end
   end
+end
+
+
+def remove_pet_by_name(pet_shop, pet_name)
+end
+
+
+
+def add_pet_to_stock(pet_shop, new_pet)
+ pet_shop = pet_shop[:pets].push(new_pet)
+end
+# @customers = [
+#   {
+#     name: "Craig",
+#     pets: [],
+#     cash: 1000
+#   },
+#   {
+#     name: "Zsolt",
+#     pets: [],
+#     cash: 50
+#   }
+# ]
+# def test_customer_cash
+#   cash = customer_cash(@customers[0])
+#   assert_equal(1000, cash)
+# end
+def customer_cash(customer)
+  return customer[:cash]
+end
+
+
+# def test_remove_customer_cash
+#   customer = @customers[0]
+#   remove_customer_cash(customer, 100)
+#   assert_equal(900, customer[:cash])
+# end
+
+def remove_customer_cash (customer, cash_removed)
+ customer[:cash] = customer_cash(customer) - cash_removed
+end
+
+
+# def test_customer_pet_count
+#   count = customer_pet_count(@customers[0])
+#   assert_equal(0, count)
+# end
+
+def customer_pet_count(customer)
+  customer[:pets] = customer[:pets].count
+end
+
+# @customers = [
+#   {
+#     name: "Craig",
+#     pets: [],
+#     cash: 1000
+#   },
+#   {
+#     name: "Zsolt",
+#     pets: [],
+#     cash: 50
+#   }
+# ]
+#
+# @new_pet = {
+#         name: "Bors the Younger",
+#         pet_type: :cat,
+#         breed: "Cornish Rex",
+#         price: 100
+#       }
+# def test_add_pet_to_customer
+#   customer = @customers[0]
+#   add_pet_to_customer(customer, @new_pet)
+#   assert_equal(1, customer_pet_count(customer))
+# end
+
+def add_pet_to_customer(customer,new_pet)
+  customer[:pets] = customer[:pets].push(new_pet)
 end
